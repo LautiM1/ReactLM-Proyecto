@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 import NavBar from './components/NavBar/NavBar'
-import ComponenteContenedor from './components/container/ComponenteContenedor'
 
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
