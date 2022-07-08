@@ -29,6 +29,7 @@ function App() {
       <div className="App" style={ objStyle }>
         <NavBar/>
         <ItemListContainer saludos={'¡Bienvenidos a D-SHIRT!'} />
+        
       </div>
     )
   }
