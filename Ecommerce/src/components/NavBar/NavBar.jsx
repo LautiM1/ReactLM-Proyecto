@@ -1,21 +1,24 @@
 import { Navbar, Container, Nav} from 'react-bootstrap'
 import CartWidget from './CartWidget'
+import { Link, NavLink } from 'react-router-dom'
 const NavBar = () => {
     const objStyle = { fontSize: 30}
     return(
         <>
         <Navbar bg="dark" variant="dark">
           <Container>
-          <Navbar.Brand href="#home" style={objStyle}>D-SHIRT</Navbar.Brand>
+          <NavLink to='/' style={objStyle}>D-SHIRT</NavLink>
           <Nav className="me-auto" style={objStyle}>
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#produtos">Productos</Nav.Link>
-            <Nav.Link href="#talles">Talles</Nav.Link>
-            <Nav.Link href="#contacto">Contacto</Nav.Link>
-            <Nav.Link href="#envio">Envio</Nav.Link>
+            <NavLink to='/categoria/home' className={({isActive})=> isActive ? 'unaClase' : 'Otraclase '}>Home</NavLink>
+            <NavLink to='/categoria/productos' className={({isActive})=> isActive ? 'unaClase' : 'Otraclase '}>Productos</NavLink>
+            <NavLink to='/categoria/talles' className={({isActive})=> isActive ? 'unaClase' : 'Otraclase '}>Talles</NavLink>
+            <NavLink to='/categoria/contacto' className={({isActive})=> isActive ? 'unaClase' : 'Otraclase '}>Contacto</NavLink>
+            <NavLink to='/categoria/envio' className={({isActive})=> isActive ? 'unaClase' : 'Otraclase '}>Envio</NavLink>
           </Nav>
           </Container>
-          <CartWidget />
+          <Link to='/cart'>
+              <CartWidget />
+          </Link>
   
         </Navbar>
        </>

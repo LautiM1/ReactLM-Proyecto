@@ -1,12 +1,12 @@
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
 import NavBar from './components/NavBar/NavBar'
+import ItemListContainer from './components/container/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/container/ItemDetailContainer/ItemDetailContainer';
+import Cart from './components/container/cart/cart';
 
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ComponenteClase from './ComponenteClase'
-import CartWidget from './components/NavBar/CartWidget';
-import ItemListContainer from './components/container/ItemListContainer/ItemListContainer';
 
 function Name(props) {
     console.log(props)
@@ -26,11 +26,17 @@ function App() {
 
     const objStyle = {fontSize: 30 }
     return(
-      <div className="App" style={ objStyle }>
-        <NavBar/>
-        <ItemListContainer saludos={'¡Bienvenidos a D-SHIRT!'} />
-        
-      </div>
+      <BrowserRouter>
+          <div className="App" style={ objStyle }>
+              <NavBar/>
+              <Routes>
+                <Route index path='/' element={<ItemListContainer saludos={'¡Bienvenidos a D-SHIRT!'} />} />
+                <Route index path='/categoria:categoryId' element={<ItemListContainer saludos={'¡Bienvenidos a D-SHIRT!'} />} />
+                <Route path='/detalle:id' element={<ItemDetailContainer />} />
+                <Route path='/cart' element={<Cart />} />
+              </Routes>
+          </div>
+      </BrowserRouter> 
     )
   }
 export default App
