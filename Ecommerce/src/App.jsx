@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 
 import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/container/ItemListContainer/ItemListContainer';
@@ -7,6 +7,7 @@ import Cart from './components/container/cart/cart';
 
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { CarritoContext } from './context/carritoContext';
 
 function Name(props) {
     console.log(props)
@@ -26,17 +27,21 @@ function App() {
 
     const objStyle = {fontSize: 30 }
     return(
+      <CarritoContext>
       <BrowserRouter>
-          <div className="App" style={ objStyle }>
+          <div>
               <NavBar/>
               <Routes>
                 <Route index path='/' element={<ItemListContainer saludos={'¡Bienvenidos a D-SHIRT!'} />} />
-                <Route index path='/categoria:categoryId' element={<ItemListContainer saludos={'¡Bienvenidos a D-SHIRT!'} />} />
+                <Route path='/categoria/:categoryId' element={<ItemListContainer saludos={'¡Bienvenidos a D-SHIRT!'} />} />
                 <Route path='/detalle:id' element={<ItemDetailContainer />} />
                 <Route path='/cart' element={<Cart />} />
+
+                <Route path='*' element={ <Navigate to='/'/>} />
               </Routes>
           </div>
       </BrowserRouter> 
+      </CarritoContext>
     )
   }
 export default App
