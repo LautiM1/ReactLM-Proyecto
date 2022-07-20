@@ -15,7 +15,7 @@ import ItemDetail from './ItemDetail';
           .then(resp => setProduct2(resp.find((p) => p.id === id)))
           .catch( err => console.log(err));
         },[id]);
-        console.log(categoryId)
+        console.log(categoryId);
   return (
     <div>
     <ItemDetail producto2={producto2} />

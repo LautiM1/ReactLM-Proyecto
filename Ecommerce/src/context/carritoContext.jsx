@@ -20,3 +20,5 @@ export  const CarritoContext = ({ children })=>{
     
     
 }
+
+export default CarritoContext
