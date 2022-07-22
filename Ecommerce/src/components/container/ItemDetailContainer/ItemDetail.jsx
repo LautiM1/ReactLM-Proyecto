@@ -4,13 +4,15 @@ import { CartContext } from "../../../context/carritoContext";
 import { Link } from "react-router-dom";
 function ItemDetail({producto2}){
 
- const [cart, setCart] = useContext(CartContext);
+ const [cart, agregar] = useContext(CartContext);
  const [cantidad, setCantidad] = useState();
  console.log(cart)
 
  const funcionContador = (contador)=>{
     console.log( "valor", contador)
     setCantidad(contador)
+    const producto ={item: producto2, quantity: contador}
+    agregar(producto)
  }
 
     const{name, precio, imagen, stock} = producto2;
