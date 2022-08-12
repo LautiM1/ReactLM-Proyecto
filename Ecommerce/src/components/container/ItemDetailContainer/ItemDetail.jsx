@@ -1,18 +1,18 @@
 import { ItemCount } from "../ItemListContainer/itemCount";
 import React, {useContext, useState} from "react";
-import { CartContext } from "../../../context/carritoContext";
+import { useCartContext } from "../../../context/carritoContext";
 import { Link } from "react-router-dom";
 function ItemDetail({producto2}){
 
- const [cart, agregar] = useContext(CartContext);
+ const [cart, addItemToCard] = useCartContext();
  const [cantidad, setCantidad] = useState();
  console.log(cart)
 
  const funcionContador = (contador)=>{
     console.log( "valor", contador)
     setCantidad(contador)
-    const producto ={item: producto2, quantity: contador}
-    agregar(producto)
+    const product ={item: producto2, quantity: contador}
+    addItemToCard(product )
  }
 
     const{name, precio, imagen, stock} = producto2;
