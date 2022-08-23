@@ -14,9 +14,7 @@ import Item from "../ItemListContainer/item"
                     {cart.map(product => (
                         <>
                             <li key={product.id}>
-                                {/* <label className="w-25" > */}
                                     <img src={product.foto} alt='foto de producto' className='w-25' />
-                                {/* </label> */}
                                 <span> - Nombre: {product.name}</span>
                                 <span> - Precio: {product.price}</span>
                                 <span> - Cantidad:  {product.cantidad}</span>     
